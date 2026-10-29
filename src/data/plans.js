@@ -7,20 +7,20 @@ export const plansContent = {
   note: 'Planes de referencia — reemplazar por las membresías reales de LEI FIT.',
   priceLabel: 'Consultar disponibilidad y precio',
   cta: 'Consultar por WhatsApp',
-  footnote: 'Beneficios de ejemplo — editables.',
+  //footnote: 'Beneficios de ejemplo — editables.',
 }
 
 // TODO: reemplazar los beneficios por los reales de cada membresía.
 export const plans = [
   {
     id: 'basico',
-    name: 'Plan Básico',
+    name: 'Plan Mensual',
     featured: false,
-    benefits: ['[Beneficio editable]', '[Beneficio editable]', '[Beneficio editable]'],
+    benefits: ['[Lunes a sabado]', '[Ayuda constante]', '[]'],
   },
   {
     id: 'plus',
-    name: 'Plan Plus',
+    name: 'Plan 2 X 1',
     featured: true,
     benefits: [
       '[Beneficio editable]',
@@ -31,7 +31,7 @@ export const plans = [
   },
   {
     id: 'premium',
-    name: 'Plan Premium',
+    name: 'Plan Interdiario',
     featured: false,
     benefits: [
       '[Beneficio editable]',
