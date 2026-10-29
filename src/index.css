@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+/* Fuentes locales (sin peticiones externas) */
+@import "@fontsource/barlow-condensed/latin-700.css";
+@import "@fontsource/barlow-condensed/latin-800.css";
+@import "@fontsource/barlow/latin-400.css";
+@import "@fontsource/barlow/latin-500.css";
+@import "@fontsource/barlow/latin-600.css";
+@import "@fontsource/barlow/latin-700.css";
+
+@theme {
+  --color-ink: #0a0a0a;
+  --color-surface: #161616;
+  --color-line: #262626;
+  --color-brand: #ffd600;
+  --color-cream: #f5f2ea;
+  --color-muted: #a3a3a3;
+  --color-faint: #8c8c8c;
+  --color-whatsapp: #22c55e;
+
+  --font-display: "Barlow Condensed", "Arial Narrow", Impact, sans-serif;
+  --font-sans: "Barlow", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --animate-marquee: marquee 28s linear infinite;
+  --animate-testimonials: marquee 50s linear infinite;
+  --animate-rise: rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(28px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
+/* Margen lateral fluido: se usa en Container y en el carrusel de testimonios */
+:root { --gutter: 1.25rem; }
+@media (min-width: 640px) { :root { --gutter: 2rem; } }
+@media (min-width: 1024px) { :root { --gutter: 2.5rem; } }
+
+.container-x {
+  width: 100%;
+  max-width: 1550px;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+/* Carrusel que sangra a los bordes pero arranca alineado al contenedor */
+.track-x {
+  padding-inline: max(var(--gutter), calc((100% - 1550px) / 2 + var(--gutter)));
+  scroll-padding-inline: max(var(--gutter), calc((100% - 1550px) / 2 + var(--gutter)));
+}
+
+html {
+  scroll-padding-top: 76px;
+  background: var(--color-ink);
+}
+@media (min-width: 1024px) {
+  html { scroll-padding-top: 96px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+body {
+  margin: 0;
+  background: var(--color-ink);
+  color: var(--color-cream);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 3px;
+}
+
+/* Ocultar scrollbar del carrusel */
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee, .animate-rise { animation: none !important; }
+}
